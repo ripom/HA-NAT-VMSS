@@ -2,6 +2,10 @@ getmyip()
 {
 	/sbin/ip -4 -o addr show dev eth1| awk '{split($4,a,"/");print a[1]}'
 }
+getmygw()
+{
+	netstat -rn | grep '^\(default\|0\.0\.0\.0\)' | awk '{print $2}'
+}
 
 sudo -i
 echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections
@@ -20,5 +24,5 @@ echo iface eth1 inet dhcp  >> /etc/network/interfaces.d/50-cloud-init.cfg
 #echo post-up ip route add default via 10.0.2.1 dev eth1 table custom >> /etc/network/interfaces.d/50-cloud-init.cfg
 
 echo post-up ip rule add from $(getmyip) to 168.63.129.16 lookup custom >> /etc/network/interfaces.d/50-cloud-init.cfg
-echo post-up ip route add default via 10.0.1.1 dev eth1 table custom >> /etc/network/interfaces.d/50-cloud-init.cfg
+echo post-up ip route add default via $(getmygw) dev eth1 table custom >> /etc/network/interfaces.d/50-cloud-init.cfg
 service networking restart
