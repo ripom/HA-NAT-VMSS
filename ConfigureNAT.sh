@@ -12,7 +12,7 @@ apt-get -y install netcat
 echo netcat -l -k -p 9999 '&' > /etc/rc.local
 echo exit 0 >> /etc/rc.local
 
-netcat -l -p 9999 &
+netcat -l -k -p 9999 &
 
 iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 iptables -A FORWARD -i eth1 -o eth0 -j ACCEPT
