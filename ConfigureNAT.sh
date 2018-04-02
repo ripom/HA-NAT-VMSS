@@ -21,4 +21,5 @@ echo iface eth1 inet dhcp  >> /etc/network/interfaces.d/50-cloud-init.cfg
 
 echo post-up ip rule add from $(getmyip) to 168.63.129.16 lookup custom >> /etc/network/interfaces.d/50-cloud-init.cfg
 echo post-up ip route add default via $1 dev eth1 table custom >> /etc/network/interfaces.d/50-cloud-init.cfg
+echo post-up ip route add 10.0.0.0/16 via $1 dev eth1 >> /etc/network/interfaces.d/50-cloud-init.cfg
 service networking restart
