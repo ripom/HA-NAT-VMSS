@@ -9,7 +9,8 @@ echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo deb
 apt-get -y install iptables-persistent 
 apt-get -y install netcat
 
-echo netcat -l -k -p 9999 '&' > /etc/rc3.d/S99nc.sh
+echo netcat -l -k -p 9999 '&' > /etc/rc.local
+echo exit 0 >> /etc/rc.local
 
 netcat -l -k -p 9999 &
 
