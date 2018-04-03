@@ -10,10 +10,10 @@ apt-get -y install iptables-persistent
 apt-get -y install netcat
 
 echo '#!/bin/sh -e' > /etc/rc.local
-echo netcat -l -k -p 9999 '&' >> /etc/rc.local
+echo netcat -l -k -p $2 '&' >> /etc/rc.local
 echo exit 0 >> /etc/rc.local
 
-netcat -l -k -p 9999 &
+netcat -l -k -p $2 &
 
 iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 iptables -A FORWARD -i eth1 -o eth0 -j ACCEPT
