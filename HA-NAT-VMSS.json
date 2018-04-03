@@ -45,11 +45,16 @@
         "networkSecurityGroupName": "[concat(parameters('vmssName'), 'nsg')]",
         "location": "[resourceGroup().location]",
         "vnetID": "[resourceId('Microsoft.Network/virtualNetworks', variables('vnetName'))]",
-        "subnetRef": "[concat(variables('vnetID'),'/subnets/backend')]",
+        "subnetRef": "[concat(variables('vnetID'),'/subnets/', variables('BE-SubnetName'))]",
         "defaultgw": "10.0.1.1",
         "internal-VIP": "10.0.1.100",
         "routing": "Internet-RT",
-        "tcpProbeNetcatPort": "9999"
+        "tcpProbeNetcatPort": "9999",
+        "vnetAddressSpace": "10.0.0.0/16",
+        "FE-Subnet": "10.0.0.0/24",
+        "FE-SubnetName": "FE-Subnet",
+        "BE-Subnet": "10.0.1.0/24",
+        "BE-SubnetName": "BE-Subnet"
     },
     "resources": [
         {
@@ -255,23 +260,23 @@
             "properties": {
                 "addressSpace": {
                     "addressPrefixes": [
-                        "10.0.0.0/16"
+                        "[variables('vnetAddressSpace')]"
                     ]
                 },
                 "subnets": [
                     {
-                        "name": "default",
+                        "name": "[variables('FE-SubnetName')]",
                         "properties": {
-                            "addressPrefix": "10.0.0.0/24",
+                            "addressPrefix": "[variables('FE-Subnet')]",
                             "networkSecurityGroup": {
                                 "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
                             }
                         }
                     },
                     {
-                        "name": "backend",
+                        "name": "[variables('BE-SubnetName')]",
                         "properties": {
-                            "addressPrefix": "10.0.1.0/24",
+                            "addressPrefix": "[variables('BE-Subnet')]",
                             "routeTable": {
                               "id": "[resourceId('Microsoft.Network/routeTables', variables('routing'))]"
                             }
