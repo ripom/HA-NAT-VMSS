@@ -405,7 +405,7 @@
                                 ]
                               },
                               "protectedSettings": {
-                                "commandToExecute": "[concat('sh ConfigureNAT.sh ',variables('defaultgw'), ' ', [variables('tcpProbeNetcatPort')])]"
+                                "commandToExecute": "[concat('sh ConfigureNAT.sh ',variables('defaultgw'), ' ', variables('tcpProbeNetcatPort'))]"
                               }
                             }
                           }
