@@ -35,4 +35,4 @@ NAT rule map internal TCP port with External TCP 2200x port.
 </ul>
 <br/>
 Example, to connect to third instance VM by ssh:<br/>
-<b>ssh username@<External-Load-Balancer-public-ip-address> -p 22003</b>
+<b>ssh username@External-Load-Balancer-public-ip-address -p 22003</b>
