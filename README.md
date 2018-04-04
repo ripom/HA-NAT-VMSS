@@ -3,8 +3,8 @@ In the Azure architecture, this is a simple way to build a free High Availabilit
 
 Today, I want talk about my experience with High Availability for Internet Access.</br>
 I used a Azure Marketplace application ready to go and it jumped on my eyes there was only one VM dedicated for internet access.
-It was a single point of failure and I start to think how to improve it, simplifying the <b>deployment</b>, the <b>managebility</b> and the <b>scalibility</b>.
-I thought it could be a good moment to start to use Azure Load Balancer standard sku and Azure Virtual Machine ScaleSet (VMSS) together.
+It was a single point of failure and I started to think how to improve it, simplifying the <b>deployment</b>, the <b>managebility</b> and the <b>scalibility</b>.
+I thought it was able to be a good moment to start to use Azure Load Balancer standard sku and Azure Virtual Machine ScaleSet (VMSS) together.
 
 <H1>Architecture</H1>
 The attached ARM Template will create a well defined architecture based on a couples of Azure Load Balancer Standard SKU and a VMSS.
