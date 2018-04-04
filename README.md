@@ -5,3 +5,4 @@ It was a single point of failure and I start to think how to improve it, simplif
 I thought it could be a good moment to start to use Azure Load Balancer standard sku and VMSS together.
 
 <H1>Architecture</H1>
+<img src=https://github.com/ripom/HA-NAT-VM/raw/ripom-patch-1/Architecture-HA-NAT-VMSS.jpg>
