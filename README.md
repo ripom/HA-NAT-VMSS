@@ -29,8 +29,8 @@ NAT rule map internal TCP port with External TCP 2200x port.
 <UL>
   <li>VM1 has 22001</li>
   <li>VM2 has 22002</li>
+  <li>and so on.</li>
 </ul>
-and so on.
 <br/>
 Example, to connect to third instance VM by ssh:<br/>
-ssh username@<External-Load-Balancer-public-ip-address> -p 22003
+<b>ssh username@<External-Load-Balancer-public-ip-address> -p 22003</b>
