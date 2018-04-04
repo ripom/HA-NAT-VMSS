@@ -21,3 +21,7 @@ In attach there is a linux bash script that configure the VM to act as a NAT ser
 The script install Netcat package and run it in background to listen on a 9999 TCP port, this port is used for a health probe connection for Load Balancer.
 IPtables is configured to enable NAT on external NIC and to forward all traffic from internal NIC to external NIC.
 Last, there is a custom routing table that allow linux to reply to Load Balancer Probe based on different source IPs.
+
+<a href="https://azuredeploy.net/?repository=https://github.com/ripom/HA-NAT-VM" target="_blank">
+    <img src="https://azuredeploy.net/deploybutton.png"/>
+</a>
