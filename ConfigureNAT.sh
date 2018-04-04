@@ -1,3 +1,4 @@
+#!/bin/bash
 getmyip()
 {
 	/sbin/ip -4 -o addr show dev eth1| awk '{split($4,a,"/");print a[1]}'
