@@ -1,4 +1,3 @@
-
 # High Availability for Internet Access using VMSS
 Today, I want talk about my experience with High Availability for Internet Access.
 I used a Marketplace application ready to go and it jumped on my eyes there was only one VM dedicated for internet access.
@@ -24,3 +23,10 @@ IPtables is configured to enable NAT on external NIC and to forward all traffic 
 Last, there is a custom routing table that allow linux to reply to Load Balancer Probe based on different source IPs.
 <br/>
 
+To connect to single VM, is possible to use ssh. External Load Balancer has configured NAT Rule to allow you to connect to each single VM.
+NAT rule map internal TCP port with External TCP 2200x port.
+VM1 has 22001
+VM2 has 22002
+and so on.
+Example, to connect to third instance VM by ssh:
+ssh username@<External-Load-Balancer-public-ip-address> -p 22003
