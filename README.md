@@ -23,8 +23,4 @@ The script install Netcat package and run it in background to listen on a 9999 T
 IPtables is configured to enable NAT on external NIC and to forward all traffic from internal NIC to external NIC.
 Last, there is a custom routing table that allow linux to reply to Load Balancer Probe based on different source IPs.
 <br/>
-<br/>
-<br/>
-<a href="https://azuredeploy.net/?repository=https://github.com/ripom/HA-NAT-VM" target="_blank">
-    <img src="https://azuredeploy.net/deploybutton.png"/>
-</a>
+
