@@ -1,3 +1,4 @@
+
 # High Availability for Internet Access using VMSS
 Today, I want talk about my experience with High Availability for Internet Access.
 I used a Marketplace application ready to go and it jumped on my eyes there was only one VM dedicated for internet access.
@@ -14,7 +15,7 @@ In detail, there is:
   <li>a VMSS based on UBUNTU distribution with two network interface, one connect with frontend subnet and one connect with backend subnet.</li>
   <li>a route table that change default routing for backend subnet. It sends all internet traffic to private VIP of Azure Internal Load Balancer</li>
 </UL>
-<img src=https://github.com/ripom/HA-NAT-VM/raw/ripom-patch-1/Architecture-HA-NAT-VMSS.jpg>
+<img src=https://github.com/ripom/HA-NAT-VM/raw/master/Architecture-HA-NAT-VMSS.jpg>
 
 <H2>Ubuntu configuration</H2>
 In attach there is a linux bash script that configure the VM to act as a NAT server.
