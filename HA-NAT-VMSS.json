@@ -280,7 +280,10 @@
                             "routeTable": {
                               "id": "[resourceId('Microsoft.Network/routeTables', variables('routing'))]"
                             }
-                        }
+                        },
+                        "dependsOn": [
+                            "[resourceId('Microsoft.Network/routeTables', variables('routing'))]"
+                        ]
                     }
                 ]
             },
